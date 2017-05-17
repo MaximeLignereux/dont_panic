@@ -29,7 +29,7 @@
         var elevatorFloor = parseInt(inputs[0]); 
         var elevatorPos = parseInt(inputs[1]); 
 
-         elevators[i] = new elevator(elevatorFloor, elevatorPos);
+        elevators[i] = new elevator(elevatorFloor, elevatorPos);
 
      }
 
