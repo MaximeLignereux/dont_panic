@@ -4,36 +4,39 @@
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
  **/
+ 
+ 
 
-var inputs = readline().split(' ');
-var nbFloors = parseInt(inputs[0]);
-var width = parseInt(inputs[1]);
-var nbRounds = parseInt(inputs[2]);
-var exitFloor = parseInt(inputs[3]); 
-var exitPos = parseInt(inputs[4]);
-var nbTotalClones = parseInt(inputs[5]); 
-var nbAdditionalElevators = parseInt(inputs[6]); 
-var nbElevators = parseInt(inputs[7]); 
-
-var elevators = [];
-
-function elevator(floor, pos){
-    this.floor = floor;
-    this.pos = pos;
-}
-
-for (var i = 0; i < nbElevators; i++) {
     var inputs = readline().split(' ');
-    var elevatorFloor = parseInt(inputs[0]); 
-    var elevatorPos = parseInt(inputs[1]); 
-    
-    elevators[i] = new elevator(elevatorFloor, elevatorPos);
-    
-}
+    var nbFloors = parseInt(inputs[0]);
+    var width = parseInt(inputs[1]);
+    var nbRounds = parseInt(inputs[2]);
+    var exitFloor = parseInt(inputs[3]); 
+    var exitPos = parseInt(inputs[4]);
+    var nbTotalClones = parseInt(inputs[5]); 
+    var nbAdditionalElevators = parseInt(inputs[6]); 
+    var nbElevators = parseInt(inputs[7]); 
+
+    var elevators = [];
+
+    function elevator(floor, pos){
+        this.floor = floor;
+        this.pos = pos;
+    }
+
+    for (var i = 0; i < nbElevators; i++) {
+       var inputs = readline().split(' ');
+       var elevatorFloor = parseInt(inputs[0]); 
+       var elevatorPos = parseInt(inputs[1]); 
+
+        elevators[i] = new elevator(elevatorFloor, elevatorPos);
+
+    }
 
 
 // game loop
-while (true) {
+
+    while (true) {
 
     var inputs = readline().split(' ');
     
