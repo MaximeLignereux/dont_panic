@@ -1,4 +1,4 @@
-/**
+//**
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
  **/
@@ -28,6 +28,13 @@ for (var i = 0; i < nbElevators; i++) {
     
 }
 
+function search(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+        if (myArray[i].floor === nameKey) {
+            return myArray[i];
+        }
+    }
+}
 
 // game loop
 while (true) {
@@ -35,59 +42,41 @@ while (true) {
     var cloneFloor = parseInt(inputs[0]); // floor of the leading clone
     var clonePos = parseInt(inputs[1]); // position of the leading clone on its floor
     var direction = inputs[2]; // direction of the leading clone: LEFT or RIGHT
-    var BLOCKED = false;
-    var nextFloor = false;
-    var lastFloor = 0;
-    
-    
-    if(lastFloor < cloneFloor) nextFloor = true;
 
-                    
+    var elevator = search(cloneFloor, elevators);
+    
     if(cloneFloor < exitFloor){  
         
-        if( direction === 'LEFT'){
-             if(clonePos < elevators[parseInt(cloneFloor)].pos && BLOCKED === false){
-                print('BLOCK');   
-                BLOCKED = true;
+        
+        if( direction === 'LEFT' && cloneFloor >= 0 && clonePos >= 0){
+
+             if(clonePos < elevator.pos ){
+                print('BLOCK');  
                 
             }else print('WAIT');
             
-        }else if(direction === 'RIGHT'){
+        }else if(direction === 'RIGHT' && cloneFloor >= 0 && clonePos >= 0){
             
-            if(clonePos > elevators[parseInt(cloneFloor)].pos && BLOCKED === false ){
+            if(clonePos > elevator.pos ){
                 print('BLOCK');   
-                BLOCKED = true;
             }else print('WAIT');
            
         }else print('WAIT');    
-    }
-    
-    if(cloneFloor === exitFloor){
+        
+    }else{
         
         if( direction === 'LEFT'){
-            if(clonePos < exitPos &&  BLOCKED === false){
+            if(clonePos < exitPos ){
                 print('BLOCK');  
-                BLOCKED = true;
             }else print('WAIT');
             
         }else if(direction === 'RIGHT'){
             
-            if(clonePos > exitPos &&  BLOCKED === false){
+            if(clonePos > exitPos){
                 print('BLOCK'); 
-                BLOCKED = true;
                 
             }else print('WAIT');
         }else print('WAIT');
-    }
-    
-     
-        
-            
-    if(nextFloor === true){
-        nextFloor = false;
-        lastFloor = cloneFloor;
-        BLOCKED = false;
-    }
-     
+    }    
     
 }
